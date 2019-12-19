@@ -3,11 +3,7 @@ namespace CoreEscuela.Entidades
     class Escuela
     {
         string nombre;
-        public string Nombre
-        {
-            get { return nombre; }
-            set { Nombre = value; }
-        }
+        public string Nombre { get; set; }
 
         public int AñoDeCreacion { get; set; }
 
@@ -23,9 +19,16 @@ namespace CoreEscuela.Entidades
              año = AñoDeCreacion;
         }
 
+        public Escuela(string nombre, int año, TiposEscuela tipo, string pais="", string ciudad="")
+        {
+            (Nombre, AñoDeCreacion) = (nombre, año);
+            Pais = pais;
+            Ciudad = ciudad;
+        }
+
         public override string ToString()
         {
-            return $"Nombre: {Nombre}, Tipo: {TipoEscuela} \nPais: {Pais}, Ciudad: {Ciudad}";
+            return $"Nombre: \"{Nombre}\", Tipo: {TipoEscuela} \nPais: {Pais}, Ciudad: {Ciudad}";
         }
 
         //public Escuela(string nombre, int año) => (Nombre,AñoDeCreacion) = (nombre,año);
