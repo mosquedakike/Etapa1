@@ -5,6 +5,9 @@ namespace CoreEscuela.Entidades
     {
         Kinder,
         Primaria,
-        Secundaria
+        Secundaria,
+        Universidad,
+        Maestria,
+        Doctorado
     }
 }

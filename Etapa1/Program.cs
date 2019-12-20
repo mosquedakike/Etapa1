@@ -7,16 +7,21 @@ namespace Etapa1
     {
         static void Main(string[] args)
         {
-            //Escuela numero 1
-            var escuela = new Escuela("Platzi",1994);
-            escuela.Pais = "Colombia";
-            escuela.Ciudad = "Bogota";
-            escuela.TipoEscuela = TiposEscuela.Kinder;
+            var escuela = new Escuela("UPVM",2009,TiposEscuela.Secundaria,"Mexico","CDMX");
             Console.WriteLine(escuela);
 
-            //Escuela numero2 con el mismo constructor
-            var escuela1 = new Escuela("UPVM",2009,TiposEscuela.Secundaria,"Mexico","CDMX");
-            Console.ReadLine();        
+            var curso1 = new Curso()
+            {
+                Nombre = "101"
+            };
+
+            var curso2 = new Curso()
+            {
+                Nombre = "201",
+                Jornada = TiposJornada.Noche
+            };
+
+            Console.WriteLine(curso1);
         }
     }
 }
