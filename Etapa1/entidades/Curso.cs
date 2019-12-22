@@ -13,7 +13,12 @@ namespace CoreEscuela.Entidades
             UniqId = Guid.NewGuid().ToString();
         }*/
 
-        public Curso() => UniqId = Guid.NewGuid().ToString();
-        
+        public Curso() =>  UniqId = Guid.NewGuid().ToString();
+
+        public override string ToString()
+        {
+            return $"Nombre: \"{Nombre}\", Jornada: {Jornada} \nID: {UniqId}";
+        }
+
     }
 }
