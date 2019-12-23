@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using CoreEscuela.Entidades;
 using static System.Console;
 
@@ -13,42 +14,44 @@ namespace Etapa1
             WriteLine(escuela);
 
 
-            //Array declarado con su tamaño
-            var arrayCursos = new Curso[3];
-
-            arrayCursos[0] = new Curso() { Nombre = "101" };
-            arrayCursos[1] = new Curso() { Nombre = "201" };
-            arrayCursos[2] = new Curso() { Nombre = "301", Jornada = TiposJornada.Noche };
-
-            //Array sin tamaño
-            escuela.Cursos = new Curso[]{
-                new Curso(){ Nombre = "401"},
-                new Curso(){ Nombre = "501"},
-                new Curso(){ Nombre = "601", Jornada = TiposJornada.Tarde}
+            //Coleccion 
+            escuela.Cursos2 = new List<Curso>()
+            {
+                new Curso(){ Nombre = "101", Jornada = TiposJornada.Mañana},
+                new Curso(){ Nombre = "201", Jornada = TiposJornada.Tarde},
+                new Curso(){ Nombre = "301", Jornada = TiposJornada.Noche}
             };
 
+            //Array
+            escuela.Cursos = new Curso[]{
+                new Curso{ Nombre = "401"},
+                new Curso{ Nombre = "501"},
+                new Curso{ Nombre = "601", Jornada = TiposJornada.Tarde}
+            };
 
-           
-            for (int i = 0; i < arrayCursos.Length; i++)
-            {
-                WriteLine("Posicion: " + i + " " + "Curso: " + arrayCursos[i]);
-            }
+            escuela.Cursos2.Add(new Curso {Nombre="102", Jornada = TiposJornada.Tarde});
 
-            foreach (var curso in arrayCursos)
-            {
-                WriteLine($"Nombre: {curso.Nombre} UniqId: {curso.UniqId}");
-            }
-
-
+            ImprimirCursos2Escuela(escuela);
             ImprimirCursosEscuela(escuela);
 
             
         }
 
+        private static void ImprimirCursos2Escuela(Escuela escuela)
+        {
+            WriteLine("*******************************************");
+            WriteLine("Cursos de la escuela con Colecciones");
+            WriteLine("*******************************************");
+            foreach (var curso in escuela.Cursos2)
+            {
+                WriteLine($"Nombre: {curso.Nombre} ID: {curso.UniqId}");
+            }
+        }
+
         public static void ImprimirCursosEscuela(Escuela escuela)
         {
             WriteLine("*******************************************");
-            WriteLine("Cursos de la escuela");
+            WriteLine("Cursos de la escuela con Arraglos");
             WriteLine("*******************************************");
             foreach (var curso in escuela.Cursos)
             {

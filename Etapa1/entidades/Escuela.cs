@@ -1,8 +1,10 @@
+using System.Collections.Generic;
+
 namespace CoreEscuela.Entidades
 {
     class Escuela
     {
-        string nombre;
+        public string nombre;
         public string Nombre { get; set; }
 
         public int AñoDeCreacion { get; set; }
@@ -15,6 +17,7 @@ namespace CoreEscuela.Entidades
 
         public Curso[] Cursos { get; set; }
 
+        public List<Curso> Cursos2 { get; set; }
 
         public Escuela(string nombre, int año)
         {
