@@ -15,9 +15,9 @@ namespace CoreEscuela.Entidades
 
         public TiposEscuela TipoEscuela { get; set; }
 
-        public Curso[] Cursos { get; set; }
+        public Curso[] CursosConArray { get; set; }
 
-        public List<Curso> Cursos2 { get; set; }
+        public List<Curso> CursosConList { get; set; }
 
         public Escuela(string nombre, int año)
         {
