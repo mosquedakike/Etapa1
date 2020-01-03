@@ -13,13 +13,15 @@ namespace Etapa1
             var escuela = new Escuela("UPVM",2009,TiposEscuela.Secundaria,"Mexico","CDMX");
             WriteLine(escuela);
 
+            var escuela2 = new Escuela("UNAM", 1800, TiposEscuela.Universidad, "Mexico", "CDMX");
+
             //Declaración de colecciones
 
             //Coleccion 
             escuela.CursosConList = new List<Curso>()
             {
                 new Curso(){ Nombre = "101", Jornada = TiposJornada.Mañana},
-                new Curso(){ Nombre = "201", Jornada = TiposJornada.Tarde},
+                new Curso(){ Nombre = "101", Jornada = TiposJornada.Tarde},
                 new Curso(){ Nombre = "301", Jornada = TiposJornada.Noche}
             };
 
@@ -57,7 +59,13 @@ namespace Etapa1
             escuela.CursosConList.Remove(temp);
 
             //Removiendo el objeto [obj] que cumpla con la condicion del metodo [predicado]
-            escuela.CursosConList.RemoveAll(predicado);
+            //escuela.CursosConList.RemoveAll(Predicado);
+            escuela.CursosConList.RemoveAll(delegate (Curso cur)
+            {
+                return cur.Nombre == "301";
+            });
+
+            escuela.CursosConList.RemoveAll((cur)=>cur.Nombre=="101" && cur.Jornada == TiposJornada.Mañana);
 
             ImprimirCursosConColecciones(escuela);
             //El HashCode es una propiedad que tienen todos los objetos y es un identificador que se les asigna
@@ -67,7 +75,7 @@ namespace Etapa1
             Console.ReadLine();
         }
 
-        private static bool predicado(Curso obj)
+        private static bool Predicado(Curso obj)
         {
             return obj.Nombre == "301";
         }
@@ -79,7 +87,7 @@ namespace Etapa1
             WriteLine("*******************************************");
             foreach (var curso in escuela.CursosConArray)
             {
-                WriteLine($"Nombre: {curso.Nombre} ID: {curso.UniqId}");
+                WriteLine($"Nombre: {curso.Nombre} Jornada: {curso.Jornada} ID: {curso.UniqId}");
             }
         }
 
@@ -90,7 +98,7 @@ namespace Etapa1
             WriteLine("*******************************************");
             foreach (var curso in escuela.CursosConList)
             {
-                WriteLine($"Nombre: {curso.Nombre} ID: {curso.UniqId}");
+                WriteLine($"Nombre: {curso.Nombre} Jornada: {curso.Jornada} ID: {curso.UniqId}");
             }
 
         }
