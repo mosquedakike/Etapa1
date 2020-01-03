@@ -55,10 +55,14 @@ namespace Etapa1
 
             //Removiendo el objeto [temp] de la coleccion [CursosConList]
             escuela.CursosConList.Remove(temp);
+
             //Removiendo el objeto [obj] que cumpla con la condicion del metodo [predicado]
             escuela.CursosConList.RemoveAll(predicado);
 
             ImprimirCursosConColecciones(escuela);
+            //El HashCode es una propiedad que tienen todos los objetos y es un identificador que se les asigna
+            WriteLine(escuela.CursosConArray[0].GetHashCode());
+            WriteLine(escuela.CursosConArray[1].GetHashCode());
 
             Console.ReadLine();
         }
