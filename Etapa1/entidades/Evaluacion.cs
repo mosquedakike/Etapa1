@@ -4,13 +4,17 @@ using System.Text;
 
 namespace CoreEscuela.Entidades
 {
-    public class Alumno
+    public class Evaluacion
     {
         public string UniqId { get; set; }
         public string Nombre { get; set; }
 
-        public Alumno() => UniqId = Guid.NewGuid().ToString();
+        public Evaluacion() => UniqId = Guid.NewGuid().ToString();
 
+        public Alumno Alumno { get; set; }
 
+        public Asignatura Asignatura { get; set; }
+
+        public float Calificacion { get; set; }
     }
 }
